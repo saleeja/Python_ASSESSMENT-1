@@ -1,0 +1,23 @@
+# Category: Burger Menu
+
+## Subcategory: Veggie Burger
+Quinoa Chickpea Burger,Quinoa and chickpea patty with avocado and tzatziki,230
+
+## Subcategory: non-Veggie Burger
+Grilled Chicken Burger,In house burger bun filled with a fried chicken patty tomatoes lettuce onions and thousand island sauce,199
+Chicken Burger,In house burger bun filled with a fried chicken patty tomatoes lettuce onions and thousand island sauce,199
+
+## Subcategory: Combo Offers
+Classic Combo,Classic Beef Burger with fries and a drink,350
+Veggie Combo,Veggie Burger with sweet potato fries and a smoothie,250
+
+# Category: Wraps
+Chicken Caesar Wrap,Grilled chicken romaine lettuce croutons parmesan and Caesar dressing,220
+Veggie Mediterranean Wrap,Hummus mixed veggies feta cheese and balsamic glaze,230
+
+# Category: drinks
+
+Iced Coffee, Cold-brew coffee served over ice, 150
+Fruit Smoothie, Blend of fresh fruits with yogurt and ice, 180
+
+

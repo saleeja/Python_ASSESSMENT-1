@@ -1,0 +1,61 @@
+What is the correct way to declare a variable in Python?
+
+a. var x = 5
+b. x = 5
+c. int x = 5
+d. x := 5
+Correct: b
+
+Which of the following is a valid Python comment?
+
+a. /* This is a comment */
+b. // This is a comment
+c. # This is a comment
+d. -- This is a comment
+Correct: c
+
+How do you check the length of a list in Python?
+
+a. len(list)
+b. list.length()
+c. size(list)
+d. list.size()
+Correct: a
+
+Which keyword is used for creating a function in Python?
+
+a. function
+b. def
+c. define
+d. func
+Correct: b
+
+What is the purpose of the if statement in Python?
+
+a. Looping
+b. Decision making
+c. Function definition
+d. Variable assignment
+Correct: b
+
+What does the import keyword do in Python?
+
+a. Export a module
+b. Include a module
+c. Define a class
+d. Create a variable
+Correct: b
+
+How do you open a file in Python for reading?
+
+a. open("file.txt", "r")
+b. read("file.txt")
+c. fopen("file.txt", "read")
+d. file.open("file.txt")
+Correct: a
+
+
+
+
+
+
