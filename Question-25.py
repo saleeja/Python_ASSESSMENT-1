@@ -10,7 +10,7 @@ class QuizGame:
         self.filename = filename
         self.questions = []
         # Set the time limit for the quiz in seconds (15 minutes).
-        self.quiz_time_limit = 900  
+        self.quiz_time_limit = 600  
 
     def load_questions(self):
         try:
@@ -19,15 +19,15 @@ class QuizGame:
                 lines = file.readlines()
 
             # Process the lines to extract questions and answers.
-            question_data = [line.strip() for line in lines if line.strip()]
+            question_data = [line for line in lines if line.strip()]
 
             i = 0
             while i < len(question_data):
                 try:
                     # Extract question text, options, and correct answer from the processed data.
                     question_text = question_data[i]
-                    options = question_data[i + 1:i + 5]
-                    correct_answer = question_data[i + 5]
+                    options = question_data[1:5]
+                    correct_answer = question_data[5]
                     question = {
                         'question_text': question_text,
                         'options': options,
@@ -96,7 +96,7 @@ class QuizGame:
             print("\nTime's up! Quiz ended.")
         else:
             # If there is still time, evaluate pass/fail based on the score.
-            if score >= 10:
+            if score >= 6:
                 print("Congratulations! You passed the quiz!")
             else:
                 print("Sorry, you didn't pass the quiz. Keep learning!")
@@ -107,7 +107,7 @@ try:
     quiz_game = QuizGame(quiz_filename)
     print("Welcome to the Python Quiz!")
     print("Read each question carefully and choose the best answer to each one.")
-    print("You have 15 minutes to answer the following questions.")
+    print("You have 10 minutes to answer the following questions.")
     quiz_game.load_questions()
     quiz_game.run_quiz()
 except Exception as e:

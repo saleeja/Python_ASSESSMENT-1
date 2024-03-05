@@ -1,3 +1,17 @@
+Who developed Python Programming Language?
+a. Wick van Rossum
+b. Rasmus Lerdorf
+c. Guido van Rossum
+d. Niene Stom
+Correct: c
+
+Which type of Programming does Python support?
+a.object-oriented programming
+b.structured programming
+c.functional programming
+d.all of the mentioned
+Correct: d
+
 What is the correct way to declare a variable in Python?
 
 a. var x = 5
@@ -54,6 +68,13 @@ c. fopen("file.txt", "read")
 d. file.open("file.txt")
 Correct: a
 
+Which of the following is the correct extension of the Python file?
+a. .python
+b. .pl
+c. .py
+d. .p
+
+Correct: c
 
 
 

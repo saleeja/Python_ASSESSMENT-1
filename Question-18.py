@@ -63,8 +63,6 @@ while True:
 
 # Displaying records
 school_records.display_records()
-
-# Additional functionalities
 school_records.calculate_average_height()
 school_records.display_max_min_height_students()
 

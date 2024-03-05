@@ -101,7 +101,7 @@ class BurgerMenu:
             print(f"{i}. {burger}")
         print("-----------------------")
 
-# Simulated Checkout Process
+
 def checkout_and_wait(cart):
     total_amount = cart.display_cart()
 
