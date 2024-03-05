@@ -1,23 +1,34 @@
-# Category: Burger Menu
+#  Bites & spicy Menu
+## Burgers:
+Classic Veggie Delight Burger,A hearty vegetable patty topped with fresh lettuce tomatoes onions and our special sauce,250
+Sizzling Beef Bliss Burger,Juicy beef patty with melted cheese crispy bacon lettuce and our signature barbecue sauce,200
+Spicy Chick'n Fiesta Burger,A zesty chicken patty with jalapeños pepper jack cheese lettuce and chipotle mayo,230
 
-## Subcategory: Veggie Burger
-Quinoa Chickpea Burger,Quinoa and chickpea patty with avocado and tzatziki,230
+## Wraps:
+Mediterranean Veggie Wrap,Grilled vegetables, feta cheese, hummus, and tzatziki wrapped in a warm tortilla,200
+Chicken Caesar Wrap,Grilled chicken crisp romaine lettuce Parmesan cheese and Caesar dressing in a soft wrap,190
+   
+## Sandwiches:
+Clubhouse Delight Sandwich,Triple layered sandwich with turkey ham bacon Swiss cheese lettuce and mayo,220
+Caprese Panini,Fresh mozzarella ripe tomatoes basil pesto and balsamic glaze pressed in a ciabatta,199
+   
 
-## Subcategory: non-Veggie Burger
-Grilled Chicken Burger,In house burger bun filled with a fried chicken patty tomatoes lettuce onions and thousand island sauce,199
-Chicken Burger,In house burger bun filled with a fried chicken patty tomatoes lettuce onions and thousand island sauce,199
-
-## Subcategory: Combo Offers
-Classic Combo,Classic Beef Burger with fries and a drink,350
-Veggie Combo,Veggie Burger with sweet potato fries and a smoothie,250
-
-# Category: Wraps
-Chicken Caesar Wrap,Grilled chicken romaine lettuce croutons parmesan and Caesar dressing,220
-Veggie Mediterranean Wrap,Hummus mixed veggies feta cheese and balsamic glaze,230
-
-# Category: drinks
-
+## Drinks:
+Tropical Paradise Smoothie,A refreshing blend of mango pineapple banana and coconut milk,150
+Classic Chocolate Shake,Creamy chocolate goodness topped with whipped cream,190
+Cucumber Mint Lemonade Cooling cucumber fresh mint and zesty lemonade for a crisp and revitalizing drink,80
 Iced Coffee, Cold-brew coffee served over ice, 150
 Fruit Smoothie, Blend of fresh fruits with yogurt and ice, 180
+
+## Desserts:
+Decadent Chocolate Brownie Sundae Rich chocolate brownie topped with vanilla ice cream hot fudge whipped cream, and a cherry,120
+Fruit Explosion Parfait Layers of fresh fruit yogurt and granola for a delightful and healthy treat,180
+    
+
+
+
+
+
+
 
 

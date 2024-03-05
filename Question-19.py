@@ -2,9 +2,18 @@
 
 import time
 
-# Class representing a Burger
 class Burger:
-    AVAILABLE_CUSTOMIZATIONS = {"Cheese": 20, "Lettuce": 15, "Mayonnaise": 20}
+    AVAILABLE_CUSTOMIZATIONS = {"Cheese": 20, 
+                                "Lettuce": 15, 
+                                "Mayonnaise": 20, 
+                                "Plain Bun.": 15.00,
+                                "Whole Wheat Bun.": 20.00,
+                                "Sesame Seed Bun":30.00,
+                                "Beef Patty": 100.50,
+                                "Chicken Patty": 90.00,
+                                "Tomato": 4.75,
+                                "Pickles": 6.50,
+                                "Onions": 3.75,}
 
     def __init__(self, name, description, price, customizations=None):
         self.name = name
@@ -35,8 +44,6 @@ class Burger:
     def __str__(self):
         return f"{self.name}: {self.description} - ₹{self.calculate_total_price():.2f} (Customizations: {self.get_customizations()})"
 
-
-# Class representing a Cart
 class Cart:
     def __init__(self):
         self.items = []
@@ -53,11 +60,10 @@ class Cart:
         for item in self.items:
             print(item)
         total_amount = self.calculate_total()
-        print(f"Total Amount: {total_amount:.2f}")
+        print(f"Total Amount: ₹{total_amount:.2f}")
         print("-----------------")
         return total_amount
 
-# Class representing a BurgerMenu
 class BurgerMenu:
     def __init__(self):
         self.burgers = []
@@ -73,7 +79,7 @@ class BurgerMenu:
                 for line in file:
                     line = line.strip()
                     if line.startswith("#"):
-                        current_category = line[1:].strip()
+                        current_category = line[2:].strip()
                     elif line.startswith("##"):
                         current_subcategory = line[2:].strip()
                     elif line:
@@ -96,74 +102,99 @@ class BurgerMenu:
             print(f"Error: {e}")
 
     def display_menu(self):
-        print("----- Burger Menu -----")
+        print("----- FOOD MENU -----")
+        current_category = None
         for i, burger in enumerate(self.burgers, start=1):
+            if burger.category != current_category:
+                print(f"\n{burger.category}")
+                current_category = burger.category
+
             print(f"{i}. {burger}")
-        print("-----------------------")
 
+        print("-----------------")
 
-def checkout_and_wait(cart):
-    total_amount = cart.display_cart()
+def create_your_own_burger(prices):
+    burger_name = input("Enter the name for your custom burger: ")
+    burger = Burger(burger_name, "Your custom burger", 0.0)
+    burger.display_available_customizations()
+    customization_numbers = input("Enter the numbers of the customizations you want (comma-separated): ").split(',')
+    for number in customization_numbers:
+        try:
+            burger.add_customization(list(burger.AVAILABLE_CUSTOMIZATIONS.keys())[int(number) - 1])
+        except (ValueError, IndexError):
+            print("Invalid customization number. Skipping...")
 
-    proceed_payment = input(f"Do you want to proceed with the payment? (yes/no): ").lower()
-    if proceed_payment == 'yes':
-        print("Checking out...")
-        time.sleep(2)  # Simulating payment processing
-        print("Payment successful!")
-        print("Your order will be ready in 10 minutes.")
-        time.sleep(10)  # Simulating food preparation time
-        print("Order is ready for pickup!")
-    else:
-        print("Payment canceled. Thank you!")
+    return burger
 
-# Main code block
-menu_file_path = "menu.txt"  
-burger_menu = BurgerMenu()
+def main():
+    burger_menu = BurgerMenu()
+    burger_menu.load_menu_from_file('menu.txt')
+    cart = Cart()
 
-# Load the menu from a file
-try:
-    burger_menu.load_menu_from_file(menu_file_path)
-except Exception as e:
-    print(f"Error loading menu: {e}")
-    exit()
+    print("Welcome to the Burger Joint!")
+    while True:
+        print("\n1. Display Menu")
+        print("2. Add Burger to Cart")
+        print("3. View Cart")
+        print("4. Checkout")
+        print("5. Create Your Own Burger")
+        print("6. Exit")
+        choice = input("Enter your choice (1-6): ")
 
-# Display the menu
-burger_menu.display_menu()
+        if choice == '1':
+            burger_menu.display_menu()
+        elif choice == '2':
+            try:
+                burger_index = int(input("Enter the burger number to add to your cart (0 to finish): "))
+                if burger_index == 0:
+                    continue
 
-cart = Cart()
+                burger = burger_menu.burgers[burger_index - 1]
+                print(f"Do you want any customizations for '{burger.name}'? (yes/no): ")
+                customization_choice = input().strip().lower()
 
-# User interaction loop
-while True:
-    try:
-        user_choice = int(input("Enter the number of the burger you want to add to the cart (0 to finish): "))
-        if user_choice == 0:
-            break
-        elif 1 <= user_choice <= len(burger_menu.burgers):
-            selected_burger = burger_menu.burgers[user_choice - 1]
+                if customization_choice == 'yes':
+                    burger.display_available_customizations()
+                    customization_numbers = input("Enter the numbers of the customizations you want (comma-separated): ").split(',')
+                    for number in customization_numbers:
+                        try:
+                            burger.add_customization(list(burger.AVAILABLE_CUSTOMIZATIONS.keys())[int(number) - 1])
+                        except (ValueError, IndexError):
+                            print("Invalid customization number. Skipping...")
 
-            # Customization option
-            customization_prompt = input("Do you want any customizations? (yes/no): ").lower()
-            if customization_prompt == 'yes':
-                selected_burger.display_available_customizations()
-                customization_choice = input("Enter the numbers of the customizations you want (comma-separated): ")
-                selected_customizations = [list(Burger.AVAILABLE_CUSTOMIZATIONS.keys())[int(choice) - 1] for choice in customization_choice.split(",")]
-                for customization in selected_customizations:
-                    selected_burger.add_customization(customization)
+                quantity = int(input(f"How many '{burger.name}' do you want to add to the cart? "))
+                cart.add_to_cart(burger, quantity)
+                print(f"{quantity} '{burger.name}'(s) added to the cart.")
+
+            except (ValueError, IndexError):
+                print("Invalid input. Please enter a valid burger number and quantity.")
+        elif choice == '3':
+            cart.display_cart()
+        elif choice == '4':
+            total_amount = cart.calculate_total()
+            print(f"Total Amount to Pay: ₹{total_amount:.2f}")
+            payment_choice = input("Do you want to proceed with the payment? (yes/no): ").strip().lower()
+
+            if payment_choice == 'yes':
+                print("Checking out...")
+                time.sleep(2)  # Simulating a payment process
+                print("Payment successful!")
+                print("Your order will be ready in 10 minutes.")
+                time.sleep(10)
+                print("Order is ready for pickup!")
+                break
             else:
-                # Quantity option only if customizations are not needed
-                quantity = int(input(f"How many '{selected_burger.name}' do you want to add to the cart? "))
-                cart.add_to_cart(selected_burger, quantity)
-                print(f"{quantity} '{selected_burger.name}'(s) added to the cart.")
-
-                # Ask if the user needs anything else
-                anything_else_prompt = input("Do you need anything else? (yes/no): ").lower()
-                if anything_else_prompt != 'yes':
-                    break  # Exit the loop if the user doesn't need anything else
-
+                print("Payment canceled. Your items are still in the cart.")
+        elif choice == '5':
+            user_burger = create_your_own_burger(Burger.AVAILABLE_CUSTOMIZATIONS)
+            cart.add_to_cart(user_burger)
+            print(f"{user_burger.name}'s Burger is own the way.")
+            print(f"{user_burger.name}'s Burger added to the cart.")
+        elif choice == '6':
+            print("Exiting. Thank you for using our service!")
+            break
         else:
-            print("Invalid selection. Please enter a valid burger number.")
-    except ValueError:
-        print("Invalid input. Please enter a number.")
+            print("Invalid choice. Please enter a number between 1 and 6.")
 
-# Proceed to checkout
-checkout_and_wait(cart)
+main()
+
