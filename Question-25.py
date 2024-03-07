@@ -9,7 +9,7 @@ class QuizGame:
         # Initialize QuizGame object with the provided filename and an empty list for questions.
         self.filename = filename
         self.questions = []
-        # Set the time limit for the quiz in seconds (15 minutes).
+        # Set the time limit for the quiz in seconds (10 minutes).
         self.quiz_time_limit = 600  
 
     def load_questions(self):
@@ -104,7 +104,7 @@ class QuizGame:
 try:
     # Attempt to run the quiz game.
     quiz_filename = "quiz_questions.txt"
-    quiz_game = QuizGame(quiz_filename)
+    quiz_game = QuizGame(filename=quiz_filename)
     print("Welcome to the Python Quiz!")
     print("Read each question carefully and choose the best answer to each one.")
     print("You have 10 minutes to answer the following questions.")

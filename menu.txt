@@ -21,8 +21,8 @@ Iced Coffee, Cold-brew coffee served over ice, 150
 Fruit Smoothie, Blend of fresh fruits with yogurt and ice, 180
 
 ## Desserts:
-Decadent Chocolate Brownie Sundae Rich chocolate brownie topped with vanilla ice cream hot fudge whipped cream, and a cherry,120
-Fruit Explosion Parfait Layers of fresh fruit yogurt and granola for a delightful and healthy treat,180
+Decadent Chocolate Brownie Sundae,Rich chocolate brownie topped with vanilla ice cream hot fudge whipped cream, and a cherry,120
+Fruit Explosion ,Parfait Layers of fresh fruit yogurt and granola for a delightful and healthy treat,180
     
 
 
